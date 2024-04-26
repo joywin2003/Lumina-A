@@ -11,7 +11,7 @@ LANGCHAIN_API_KEY=os.environ.get("LANGCHAIN_API_KEY")
 
 
 #Ollama model
-llm = Ollama(model="llama2")
+llm = Ollama(model="llama3")
 
 
 prompt = ChatPromptTemplate.from_messages([
