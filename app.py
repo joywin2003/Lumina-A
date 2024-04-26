@@ -9,7 +9,7 @@ LANGCHAIN_API_KEY=os.environ.get("LANGCHAIN_API_KEY")
 
 
 #chatbot
-llm = ChatGoogleGenerativeAI(model="gemini-pro",google_api_key=GOOGLE_API_KEY)
+llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest",google_api_key=GOOGLE_API_KEY)
 prompt = ChatPromptTemplate.from_messages([
         ("system", "You are a helpful assistant."),
         ("user", "Question:{question}"),
