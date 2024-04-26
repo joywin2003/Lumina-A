@@ -1,2 +1,2 @@
 langchain
-python-dotenv
+streamlit
