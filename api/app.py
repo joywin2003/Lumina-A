@@ -20,3 +20,34 @@ llama = Ollama(model="llama3")
 
 #gemini model
 gemini = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest",google_api_key=GOOGLE_API_KEY)
+
+add_routes(
+    app,
+    gemini,
+    path="/gemini",
+)
+
+add_routes(
+    app,
+    llama,
+    path="/llama",
+)
+
+prompt1=ChatPromptTemplate.from_template("Write me an essay about {topic} with 100 words")
+prompt2=ChatPromptTemplate.from_template("Write me an poem about {topic} for a 5 years child with 100 words")
+
+add_routes(
+    app,
+    prompt1|gemini,
+    path="/essay"
+)
+
+add_routes(
+    app,
+    prompt2|llama,
+    path="/poem"
+)
+
+
+if __name__=="__main__":
+    uvicorn.run(app,host="localhost",port=8000)
